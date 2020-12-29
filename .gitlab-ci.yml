@@ -9,7 +9,6 @@ stages:
   - pre_build
   - build
   - test
-#  - deploy
 
 lint:docker:
   image: hadolint/hadolint:v1.19.0-44-gf364c91-debian
@@ -41,11 +40,3 @@ test:
   image: $DOCKER_TEST_IMAGE
   script:
     - go test -p 1  -v ./...
-
-.deploy:
-  image: curlimages/curl:7.72.0
-  stage: deploy
-  only:
-    - master
-  script:
-    - curl -k -X POST -d "component=executor&key=${DEPLOYER_KEY}&tag=${CI_PIPELINE_ID}" ${DEPLOYER_HOST}
