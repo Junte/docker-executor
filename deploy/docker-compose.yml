@@ -1,0 +1,11 @@
+version: "3.2"
+
+services:
+  executor:
+    build:
+      context: ../.
+    ports:
+      - 7788:7788
+    volumes:
+      - ./config:/root
+      - /var/run/docker.sock:/var/run/docker.sock
