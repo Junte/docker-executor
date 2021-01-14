@@ -1,4 +1,3 @@
-port: ":7778"
 components:
   app:
     command: ["/opt/services/app/deploy.sh", "--tag=${arg_tag}"]

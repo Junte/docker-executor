@@ -6,7 +6,6 @@ import (
 )
 
 type AppConfig struct {
-	Port       string
 	Components map[string]ComponentConfig
 }
 
