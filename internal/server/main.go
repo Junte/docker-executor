@@ -9,9 +9,7 @@ import (
 
 func Run() {
 	log.Printf("version: %s", core.Version)
-
 	core.ReadConfig()
-
 	http.HandleFunc("/", handler)
 
 	err := startServer()
@@ -21,8 +19,8 @@ func Run() {
 }
 
 func startServer() (err error) {
-	log.Printf("starting http server on port %s", core.Config.Port)
-	err = http.ListenAndServe(core.Config.Port, nil)
+	log.Print("starting http server on port :8080")
+	err = http.ListenAndServe(":8080", nil)
 	return
 }
 
